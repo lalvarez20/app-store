@@ -11,4 +11,8 @@ import { ProductComponent } from '../../components/product/product.component';
 })
 export class ListComponent {
 
+  fronClidEvent(event: string){
+    console.log('From Dad: ' + event)
+  }
+
 }
