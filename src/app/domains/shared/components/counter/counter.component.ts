@@ -46,7 +46,7 @@ export class CounterComponent {
     console.log('message => '+this.message);
 
     this.counterRef = window.setInterval(() => {
-      console.log('run interval...');
+      //console.log('run interval...');
       this.counter.update(prevState => prevState +1);
     }, 1000)
   }
