@@ -15,6 +15,7 @@ import { Product } from './../../../shared/models/product.model';
 export class ListComponent {
 
   products = signal<Product[]>([]);
+  cartProducts = signal<Product[]>([]);
 
   constructor(){
     const initProducts: Product[] = [
@@ -43,8 +44,8 @@ export class ListComponent {
     this.products.set(initProducts);
   }
 
-  fronClidEvent(event: string){
-    console.log('From Dad: ' + event)
+  addToCart(newProduct: Product){
+    this.cartProducts.update(prevState => [...prevState, newProduct]);
   }
 
 }

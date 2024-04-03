@@ -18,7 +18,8 @@
             </ul>
         </div>
         <div class="flex items-center">
-            <button class="px-4" (click)="toogleSideMenu()">
+            <button class="px-2 border  rounded relative" (click)="toogleSideMenu()">
+                <div class="absolute -top-3 -left-3 rounded h-5 w-5 bg-red-600 text-white text-xs">{{ cart.length }}</div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -41,4 +42,31 @@
             </svg>
         </button>
     </div>
+    <div class="flow-root">
+        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+        @for (item of cart; track item.id; let idx=$index) {
+            <li class="py-3 sm:py-4">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="w-8 h-8 rounded-full" [src]="item.image" alt="Neil image">
+                    </div>
+                    <div class="flex-1 min-w-0 ms-4">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            {{item.title}}
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        S/ {{item.price}}
+                    </div>
+                </div>
+            </li>
+        }
+        </ul>
+    </div>
+    <hr>
+    <div>
+        <h5 class="mt-4 mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Total S/  <strong>{{ getTotalPrice() }}</strong> </h5>
+    </div>
+    
+    
 </div>
