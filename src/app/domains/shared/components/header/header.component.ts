@@ -1,10 +1,11 @@
 import { Component, Input, signal } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
 import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [DecimalPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

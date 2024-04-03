@@ -19,7 +19,8 @@
         </div>
         <div class="flex items-center">
             <button class="px-2 border  rounded relative" (click)="toogleSideMenu()">
-                <div class="absolute -top-3 -left-3 rounded h-5 w-5 bg-red-600 text-white text-xs">{{ cart.length }}</div>
+                <div class="absolute -top-3 -left-3 rounded h-5 w-5 bg-red-600 text-white text-xs">{{ cart.length }}
+                </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -30,8 +31,7 @@
     </div>
 </nav>
 
-<div
-    class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white "
+<div class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white "
     [class.translate-x-full]="hideSideMenu()">
     <div class="flex justify-between items-center">
         <p class="text-xl">My Cart</p>
@@ -44,7 +44,7 @@
     </div>
     <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-        @for (item of cart; track item.id; let idx=$index) {
+            @for (item of cart; track item.id; let idx=$index) {
             <li class="py-3 sm:py-4">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
@@ -52,21 +52,38 @@
                     </div>
                     <div class="flex-1 min-w-0 ms-4">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            {{item.title}}
+                            {{item.title | number : '1.2-2'}}
                         </p>
                     </div>
                     <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        S/ {{item.price}}
+                        S/ {{item.price | number : '1.2-2'}}
+                    </div>
+                    <div>
+                        <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490.646 490.646"
+                            xml:space="preserve" class="w-5 h-5 m-2">
+                            <g>
+                                <g>
+                                    <path d="M399.179,67.285l-74.794,0.033L324.356,0L166.214,0.066l0.029,67.318l-74.802,0.033l0.025,62.914h307.739L399.179,67.285z
+                                        M198.28,32.11l94.03-0.041l0.017,35.262l-94.03,0.041L198.28,32.11z" />
+                                    <path
+                                        d="M91.465,490.646h307.739V146.359H91.465V490.646z M317.461,193.372h16.028v250.259h-16.028V193.372L317.461,193.372z
+                                        M237.321,193.372h16.028v250.259h-16.028V193.372L237.321,193.372z M157.18,193.372h16.028v250.259H157.18V193.372z" />
+                                </g>
+                            </g>
+                        </svg>
                     </div>
                 </div>
             </li>
-        }
+            }
         </ul>
     </div>
     <hr>
     <div>
-        <h5 class="mt-4 mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Total S/  <strong>{{ getTotalPrice() }}</strong> </h5>
+        <h5 class="mt-4 mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
+            Total S/ <strong>{{ getTotalPrice() | number : '1.2-2'}}</strong> 
+        </h5>
     </div>
-    
-    
+
+
 </div>
