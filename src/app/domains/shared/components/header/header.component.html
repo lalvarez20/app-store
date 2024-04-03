@@ -19,7 +19,7 @@
         </div>
         <div class="flex items-center">
             <button class="px-2 border  rounded relative" (click)="toogleSideMenu()">
-                <div class="absolute -top-3 -left-3 rounded h-5 w-5 bg-red-600 text-white text-xs">{{ cart.length }}
+                <div class="absolute -top-3 -left-3 rounded h-5 w-5 bg-red-600 text-white text-xs">{{ cart().length }}
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
@@ -44,7 +44,7 @@
     </div>
     <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-            @for (item of cart; track item.id; let idx=$index) {
+            @for (item of cart(); track item.id; let idx=$index) {
             <li class="py-3 sm:py-4">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
