@@ -1,6 +1,5 @@
 import { Component, inject, Input, signal, SimpleChanges } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 
 @Component({

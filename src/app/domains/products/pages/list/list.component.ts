@@ -5,6 +5,7 @@ import { ProductComponent } from '../../components/product/product.component';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
 import { Product } from './../../../shared/models/product.model';
 import { CartService } from '../../../shared/services/cart.service';
+import { ProductService } from '../../../shared/services/product.service';
 
 @Component({
   selector: 'app-list',
@@ -17,32 +18,18 @@ export class ListComponent {
 
   products = signal<Product[]>([]);
   private cartService = inject(CartService);
+  private productService = inject(ProductService);
 
-  constructor(){
-    const initProducts: Product[] = [
-      {
-        id: Date.now(),
-        title: 'Prod 1',
-        price: 100,
-        image: 'https://picsum.photos/640/640?r=11',
-        creationAt: new Date().toISOString()
+  ngOnInit(){
+    this.productService.getProducts()
+    .subscribe({
+      next: (products) => {
+          this.products.set(products);
       },
-      {
-        id: Date.now(),
-        title: 'Prod 2',
-        price: 120,
-        image: 'https://picsum.photos/640/640?r=12',
-        creationAt: new Date().toISOString()
-      },
-      {
-        id: Date.now(),
-        title: 'Prod 3',
-        price: 135,
-        image: 'https://picsum.photos/640/640?r=13',
-        creationAt: new Date().toISOString()
+      error: () => {
+        
       }
-    ];
-    this.products.set(initProducts);
+    })
   }
 
   addToCart(newProduct: Product){
