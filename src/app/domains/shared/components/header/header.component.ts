@@ -1,6 +1,6 @@
 import { Component, inject, Input, signal, SimpleChanges } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '@shared/services/cart.service';
 
 @Component({
   selector: 'app-header',
