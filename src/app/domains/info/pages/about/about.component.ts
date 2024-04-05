@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { CounterComponent } from '@shared/components/counter/counter.component';
 import { WaveAudioComponent } from '@info/components/wave-audio/wave-audio.component';
 
+import { ReversePipe } from '@shared/pipes/reverse.pipe'
+
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, CounterComponent, WaveAudioComponent],
+  imports: [CommonModule, CounterComponent, WaveAudioComponent, ReversePipe],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
