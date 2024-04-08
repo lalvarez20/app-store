@@ -1,11 +1,12 @@
 import { Component, inject, Input, signal, SimpleChanges } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
+import { RouterLinkWithHref } from '@angular/router';
 import { CartService } from '@shared/services/cart.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [DecimalPipe],
+  imports: [DecimalPipe, RouterLinkWithHref],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
