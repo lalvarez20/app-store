@@ -1,10 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from '../../../shared/models/product.model';
+import { CurrencyPipe, DecimalPipe, DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Product } from '@shared/models/product.model';
+import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe, DecimalPipe, DatePipe, TimeAgoPipe, RouterLink],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })

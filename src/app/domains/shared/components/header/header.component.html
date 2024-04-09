@@ -7,13 +7,20 @@
             </a>
             <ul class="flex space-x-6">
                 <li>
-                    <a href="#" class="block underline hover:underline" aria-current="page">Home</a>
+                    <a routerLink="/" 
+                    routerLinkActive="underline"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    class="block underline hover:underline" aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#" class="block hover:underline">About</a>
+                    <a routerLink="/about" 
+                    routerLinkActive="underline"
+                    class="block hover:underline">About</a>
                 </li>
                 <li>
-                    <a href="#" class="block hover:underline">Services</a>
+                    <a routerLink="/services" 
+                    routerLinkActive="underline"
+                    class="block hover:underline">Services</a>
                 </li>
             </ul>
         </div>
@@ -48,7 +55,7 @@
             <li class="py-3 sm:py-4">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <img class="w-8 h-8 rounded-full" [src]="item.image" alt="Neil image">
+                        <img class="w-8 h-8 rounded-full" [src]="item.images[0]" alt="Neil image">
                     </div>
                     <div class="flex-1 min-w-0 ms-4">
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
