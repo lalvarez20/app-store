@@ -15,7 +15,7 @@ import { ReversePipe } from '@shared/pipes/reverse.pipe'
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent {
+export default class AboutComponent {
 
   duration = signal(100);
   message = signal('Hola Counter');
