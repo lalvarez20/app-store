@@ -1,3 +1,6 @@
+<div class="flex w-full">
+  <p class="font-bold text-red-600 text-xs">** Las categorías y productos pueden cambiar debido a la actualización del API</p>
+</div>
 <div class="flex space-x-4 mt-5">
   <div class="w-60">
     <ul>
@@ -12,6 +15,9 @@
     </ul>
   </div>
   <div class="grid grid-cols-4 gap-8 w-full">
+    @if (products().length === 0) {
+      <p class="font-semibold italic text-gray-700 text-xs">No se encontraron productos en esta categoría</p>
+    }
     @for (product of products(); track product) {
       <app-product
         [product]="product"
