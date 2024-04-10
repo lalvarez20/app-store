@@ -1,9 +1,9 @@
 <nav>
     <div class="w-full flex flex-wrap items-center justify-between mx-auto py-4">
         <div class="flex items-center space-x-8">
-            <a href="https://flowbite.com/" class="flex items-center ">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3" alt="Flowbite Logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap">Flowbite</span>
+            <a routerLink="/" class="flex items-center ">
+                <img src="../../../../../assets/store.svg" class="h-14 mr-3 rounded-xl" alt="AppStore Logo" />
+                <span class="self-center text-xl font-semibold whitespace-nowrap">App Store</span>
             </a>
             <ul class="flex space-x-6">
                 <li>
@@ -66,7 +66,8 @@
                         S/ {{item.price | number : '1.2-2'}}
                     </div>
                     <div>
-                        <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                        <button (click)="deleteFromCart(idx)">
+                            <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490.646 490.646"
                             xml:space="preserve" class="w-5 h-5 m-2">
                             <g>
@@ -79,6 +80,7 @@
                                 </g>
                             </g>
                         </svg>
+                        </button>
                     </div>
                 </div>
             </li>
