@@ -17,4 +17,8 @@ export class CartService {
   addToCart(product: Product){
     this.cart.update(prevState => [...prevState, product]);
   }
+
+  deleteFromCart(idx: number) {
+    this.cart.update((cart) => cart.filter((product, position) => position !== idx));
+  }
 }
